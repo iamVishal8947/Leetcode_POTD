@@ -1,0 +1,34 @@
+Time Complexity - O(n)  (no considering T.C. of sorting)
+Space Somplexity - O(n)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+    public List<List<Integer>> findWinners(int[][] matches) {
+        Map<Integer,Integer> mp=new HashMap<>();
+
+        for(int[] a:matches){
+            int lost=a[1];
+            mp.put(lost,mp.getOrDefault(lost,0)+1);
+        }
+
+        List<Integer> won=new ArrayList<>();
+        List<Integer> lostOnce=new ArrayList<>();
+
+        for(int[] num:matches){
+            int win=num[0];
+            int lose=num[1];
+
+            if(mp.get(lose)==1){
+                lostOnce.add(lose);
+            }
+            if(!mp.containsKey(win)){
+                won.add(win);
+                mp.put(win,2);
+            }
+        }
+        Collections.sort(won);
+        Collections.sort(lostOnce);
+        return Arrays.asList(won,lostOnce);
+        
+    }
+}
