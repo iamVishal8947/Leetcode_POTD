@@ -1,0 +1,23 @@
+Time Complexity - O(n) [n-total no. between low and high]
+Space Complexity - O(n) [Used Queue data structure]
+---------------------------------------------------------------------------------------------------------------------------
+class Solution {
+    public List<Integer> sequentialDigits(int low, int high) {
+        Queue<Integer> queue=new LinkedList<>();
+        for(int i=1;i<=8;i++){
+            queue.add(i);
+        }
+        List<Integer> ans=new LinkedList<>();
+        while(!queue.isEmpty()){
+            int num=queue.remove();
+            if(num>=low && num<=high){
+                ans.add(num);
+            }
+            int digit=num%10;
+            if(digit+1<=9){
+                 queue.add(num*10+(digit+1));
+            }
+        }
+        return ans;
+    }
+}
