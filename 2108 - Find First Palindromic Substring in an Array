@@ -1,0 +1,26 @@
+Time Complexity - O(m*n) - m = number of words, n = max length length of words.
+Space Complexity - O(1)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+    boolean checkPalindrome(String s){
+        int len=s.length();
+        for(int i=0;i<len/2;i++){
+            if(s.charAt(i)!=s.charAt(len-1-i)){
+                return false;
+            }
+        }
+        return true;
+    }
+    public String firstPalindrome(String[] words) {
+        String ans="";
+        for( String s:words){
+            if(checkPalindrome(s)){
+                ans=s;
+                break;
+            }
+        }
+        return ans;
+        
+    }
+}
