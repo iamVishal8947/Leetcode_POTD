@@ -1,6 +1,8 @@
 Time Complexity - O(n*log(n)) [Used Sorting]
 Space Complexity - O(1)
 
+Tips - No need to check all three conditions required to confirm that will it be possible to create triangle from 
+     choosen sides, Because we are using sorting. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Solution {
     public int largestPerimeter(int[] nums) {
