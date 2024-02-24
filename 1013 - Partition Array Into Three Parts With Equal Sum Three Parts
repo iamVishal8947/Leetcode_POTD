@@ -1,0 +1,25 @@
+Time Complexity - O(n)
+Space Complexity - O(1)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Solution {
+    public boolean canThreePartsEqualSum(int[] arr) {
+        int  totalSum=0;
+        for(int a:arr){
+            totalSum+=a;
+        }
+        if(totalSum%3 != 0){
+            return false;
+        }
+        int targetSum=totalSum/3;
+        int count=0;
+        int currSum=0;
+        for(int a:arr){
+            currSum+=a;
+            if(currSum==targetSum){
+                count++;
+                currSum=0;
+            }
+        }
+        return count>=3;  
+    }
+}
