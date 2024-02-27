@@ -1,0 +1,50 @@
+                                                             Using Priority Queue
+Time Complexity - O(n).
+Space Complexity -O(n).
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Solution {
+    public int fillCups(int[] amount) {
+        PriorityQueue<Integer> pq=new PriorityQueue<>((a,b)->(b-a));
+        for(int i:amount){
+            pq.offer(i);
+        }
+        int ans=0;
+        while(!pq.isEmpty()){
+            int first=pq.poll();
+            int second=pq.poll();
+
+            if(first<=0 && second<=0){
+                break;
+            }
+            first--;
+            second--;
+            pq.offer(first);
+            pq.offer(second);
+            ans++;
+        }
+        return ans;
+    }
+}
+
+======================================================================================================================================================================================
+======================================================================================================================================================================================
+
+                                                                           Using Maths
+Time Complexity - o(1)
+Space Complexity - O(1)
+
+
+class Solution {
+    public int fillCups(int[] amount) {
+        public int fillCups(int[] amount) {
+        int total=0;
+        int max=0;
+        for(int i:amount){
+            total+=i;
+            max=Math.max(max,i);
+        }
+        return Math.max(max,(total+1)/2);
+      }
+    }
+}
